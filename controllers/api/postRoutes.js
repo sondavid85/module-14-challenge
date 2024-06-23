@@ -51,4 +51,23 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+router.get('/deletepost/:id', async (req, res) => {
+  try {
+    const post = await Post.findByPk(req.params.id);
+    if (!post) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+    else {
+      post.destroy();
+    }
+
+    res.render('/', {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

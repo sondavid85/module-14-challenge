@@ -208,3 +208,10 @@ input[type="text"], input[type="password"], textarea {
     text-align: center;
     width:75%;
 }
+.delete-link {
+    float:right;
+    padding-right: 1em;
+    padding-top: 1em;
+    color: #F92672;
+    display: block;
+}

@@ -5,17 +5,20 @@
     {{#if posts.length}}
       {{#each posts}}
         <article>
-          <a href="/post/{{this.id}}" class="view-post-link">
-            <div class="article-title">
-              <h2 class="post-title">{{this.title}}</h2>
-              <p class="article-info">{{this.createdAt}}</p>
-            </div>
-            <div class="post-body">
-              <div class="article-content">
-                <h4 class="post-content">{{this.content}}</h4>
+          <div>          
+            <a href="/post/{{this.id}}" class="view-post-link">
+              <div class="article-title">
+                <h2 class="post-title">{{this.title}}</h2>
+                <p class="article-info">{{this.createdAt}}</p>
               </div>
-            </div>
-          </a>
+              <div class="post-body">
+                <div class="article-content">
+                  <h4 class="post-content">{{this.content}}</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div><a class="delete-link" href="/deletepost/{{this.id}}">Delete</a></div>
         </article>
       {{/each}}
     {{else}}
