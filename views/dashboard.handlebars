@@ -1,0 +1,44 @@
+<main>
+  <h1 style="margin-left:2em;">Dashboard</h1>
+  <section class="dashboard-details">
+    <h2 style="margin-left:3em;">Your Posts</h2>
+    {{#if posts.length}}
+      {{#each posts}}
+        <article>
+          <a href="/post/{{this.id}}" class="view-post-link">
+            <div class="article-title">
+              <h2 class="post-title">{{this.title}}</h2>
+              <p class="article-info">{{this.createdAt}}</p>
+            </div>
+            <div class="post-body">
+              <div class="article-content">
+                <h4 class="post-content">{{this.content}}</h4>
+              </div>
+            </div>
+          </a>
+        </article>
+      {{/each}}
+    {{else}}
+      <p>You have not created any posts yet.</p>
+    {{/if}}
+  </section>
+  <section class="dashboard-details">
+    <h2 style="margin-left: 3em;">New Post</h2>
+    <article class="new-post">
+      <form id="new-post-form" action="/api/posts/new-post" method="POST">
+        <div class="form-group">
+          <label for="post-title">Title</label>
+          <input type="text" id="post-title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="post-content">Content</label>
+          <textarea id="post-content" name="content" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Create Post</button>
+        </div>
+      </form>
+    </article>
+  </section>
+</main>
+<script src="/js/dashboard.js"></script>

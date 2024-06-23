@@ -1,0 +1,18 @@
+<main>
+  <a href="/" class="hero-link"><span id="blog-title">THE:\\<span id="blog-title-2">Tech.Blog</span></h1></a>
+  {{#each posts}}
+  <a href="/post/{{this.id}}" class="view-post-link">
+    <article>
+      <div class="article-title">
+        <h2 class="post-title">{{this.title}}</h2>
+        <p class="article-info">Posted by {{this.user.username}} on {{this.createdAt}}</p>
+      </div>
+      <div class="post-body">
+        <div class="article-content">
+          <h4 class="post-content">{{this.content}}</h4>
+        </div>
+      </div>
+    </article>
+  </a>
+  {{/each}}
+</main>
